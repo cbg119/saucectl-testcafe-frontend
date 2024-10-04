@@ -1,0 +1,13 @@
+{
+  "name": "testcafe-saucedemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "saucectl": "^0.86.0",
+    "testcafe": "^1.18.4"
+  }
+}

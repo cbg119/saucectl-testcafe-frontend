@@ -1,0 +1,48 @@
+apiVersion: v1alpha
+kind: testcafe
+showConsoleLog: true
+
+# Sauce Labs specific information
+sauce:
+  region: us-west-1
+  concurrency: 10 # Controls how many suites are executed at the same time.
+  metadata:
+    name: Default TestCafe with SauceCTL
+    tags:
+      - testcafe
+      - default
+
+# Testcafe specific info
+testcafe:
+  version: 3.5.0
+  configFile: ".testcaferc.js"
+# Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
+rootDir: ./
+
+# Tests
+suites:
+  - name: "Testcafe - testing - Chrome (Win10)"
+    #filter:
+    #  testMeta:
+    #    #key value pair to configure in test
+    #    prod: "true"
+        
+    browserName: chrome
+    platformName: "Windows 10"
+    screenResolution: "1600x1200"
+    src:
+      # test files glob
+      - "tests/**/*.spec.js"
+  - name: "Testcafe - testing - Chrome (Win11)"
+    browserName: chrome
+    platformName: "Windows 11"
+    src:
+      - "tests/**/*.spec.js"
+
+# Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
+artifacts:
+  download:
+    directory: ./artifacts
+    match:
+      - "*"
+    when: always
